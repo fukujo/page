@@ -89,7 +89,7 @@
     <h2>当アカウントの最新情報をアップするページです。</h2>
     <div class="box">
         <p>このサービスは終了しました。</p>
-        <p>今後は以下のメージにて対応いたします</p>
+        <p id="message">あと <span id="countdown">5</span> 秒でブログ(note)に移動します。</p>
     </div>
     <h3></h3>
     <div class="box"><a href="index.html">ホームに戻る</a></div>
@@ -104,6 +104,23 @@
             </ul>
         </nav>
     </footer>
+
+     <script>
+        let seconds = 5; // カウントダウンの秒数
+        let countdownElement = document.getElementById("countdown");
+
+        function updateCountdown() {
+            seconds--;
+            countdownElement.textContent = seconds;
+            if (seconds <= 0) {
+                window.location.href = "https://note.com/glossy_abelia149"; // 遷移先のURL
+            } else {
+                setTimeout(updateCountdown, 1000);
+            }
+        }
+
+        setTimeout(updateCountdown, 1000); // 1秒ごとにカウントダウン
+    </script>
 </body>
 </html>
 
